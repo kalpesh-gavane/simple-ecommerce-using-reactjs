@@ -1,0 +1,46 @@
+products.map((curItem) => {
+    return <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={curItem.product_id}>
+      <div className="single-product">
+        <div className="product-img">
+          <a>
+            <img className="default-img" src={logo} alt="#" />
+          </a>
+          <div className="button-head">
+
+            <div className="product-action">
+
+              <div className="qty mt-5">
+                <button className="minus" onClick={() => {
+                  showToast('minus', curItem);
+                  handleClick(curItem.product_id, 'minus');
+                  props.ramovefromocartHandler({ product_id: curItem.product_id })
+                }}>-</button>
+                <input type="text"
+                  disabled={true}
+                  value={counter2[curItem.product_id]}
+                  className="countdown" />
+                <button className="plus btn-btn-primary" onClick={() => {
+                  showToast('add', curItem);
+                  handleClick(curItem.product_id, 'add');
+                  props.addTocartHandler({ product_id: curItem.product_id, mrp: curItem.mrp, name: curItem.product_name, quantity: 1 });
+                }}>+</button>
+              </div>
+             
+            </div>
+            
+            <div className="product-action-2">
+            </div>
+          </div>
+        </div >
+        <div className="product-content">
+          <h3>
+            <a href="#"> {curItem.product_name}</a>
+            <a href="#"></a>
+          </h3>
+          <div className="product-price">
+            <span>$  {curItem.mrp}</span>
+          </div>
+        </div>
+      </div >
+    </div >
+  })
