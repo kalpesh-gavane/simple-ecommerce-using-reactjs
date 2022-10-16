@@ -21,8 +21,7 @@ const App = (type) => {
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/cart' element={<CartContainer />} />
           <Route exact path='/checkout' element={<Checkout />} />
-        </Routes> 
-        
+        </Routes>
       </BrowserRouter>
     </div>
   );
