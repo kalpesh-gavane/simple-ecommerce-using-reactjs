@@ -22,6 +22,7 @@ const App = (type) => {
           <Route exact path='/cart' element={<CartContainer />} />
           <Route exact path='/checkout' element={<Checkout />} />
         </Routes> 
+        
       </BrowserRouter>
     </div>
   );
