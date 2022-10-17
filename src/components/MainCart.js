@@ -12,38 +12,41 @@ const MainCart = (props) => {
     const counterState = localStorage.getItem('counter');
     const counterdata = JSON.parse(counterState);
 
+    console.log(counterdata);
+    console.log('counterdata');
+
     const [count, setCount] = useState(counterdata);
 
     useState(() => {
 
         if (statedata) {
-          if (statedata.cartItems.length > 0) {
-            props.data.cartItems = statedata.cartItems;
-            props.data.totalAmount = statedata.totalAmount;
-            props.data.totalItems = statedata.totalItems;
-          }
+            if (statedata.cartItems.length > 0) {
+                props.data.cartItems = statedata.cartItems;
+                props.data.totalAmount = statedata.totalAmount;
+                props.data.totalItems = statedata.totalItems;
+            }
         }
 
-      })
+    })
 
-   if (props.data.cartItems.length >= 0) {
+    if (props.data.cartItems.length >= 0) {
 
-    try {
-      //  console.log(props.data);
-      if (props.data.cartItems.length == 0) {
-        // console.log('0');
-        const serializedState = JSON.stringify(props.data);
-        localStorage.setItem('state', serializedState);
-      } else {
-        const serializedState = JSON.stringify(props.data);
-        localStorage.setItem('state', serializedState);
-      }
+        try {
+            //  console.log(props.data);
+            if (props.data.cartItems.length == 0) {
+                // console.log('0');
+                const serializedState = JSON.stringify(props.data);
+                localStorage.setItem('state', serializedState);
+            } else {
+                const serializedState = JSON.stringify(props.data);
+                localStorage.setItem('state', serializedState);
+            }
 
-    } catch (e) {
-      // Ignore write errors;
+        } catch (e) {
+            // Ignore write errors;
+        }
+
     }
-
-  }
 
     const showToast = (type, curItem) => {
         // console.log(type);
@@ -52,21 +55,42 @@ const MainCart = (props) => {
                 if (statedata.cartItems.length == 0 || statedata.cartItems.length > 0) {
                     toast.success('Item Added');
                 }
-            } else if(type == 'remove') {
+            } else if (type == 'remove') {
 
-                setCount(count => {
-                    const newState = { ...count } //keep state immutable
-                    !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
-                    newState[curItem.product_id] = 0
-                    return newState
-                });
+                // const product_count = localStorage.getItem('counter');
+                // const counter2 = JSON.parse(product_count);
 
-                const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
-                if (theItem) {
-                    toast.error('Item Removed');
-                }
-     
-            }else{
+                // setCount(state2 => {
+                //     const newState = counter2
+                //     return newState
+                // });
+
+                // console.log(count);
+
+                // setCount(count => {
+                //     const newState = { ...count } //keep state immutable
+                //     !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
+
+                //     if (newState[curItem.product_id] > 0) {
+                //         newState[curItem.product_id] = 0
+
+                //         const product_count = JSON.stringify(newState);
+                //         localStorage.setItem('counter', product_count);
+                //     }
+
+                //    // console.log(newState);
+
+                //     return newState
+                // });
+
+                // const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
+
+                // if (theItem) {
+                //     toast.error('Item Removed');
+                // }
+
+
+            } else {
                 const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
                 if (theItem) {
                     toast.error('Item Removed');
@@ -104,7 +128,7 @@ const MainCart = (props) => {
     const product_count = JSON.stringify(count);
     localStorage.setItem('counter', product_count);
 
-  // console.log(count);
+    // console.log(count);
     return (
         <>
             {/* <ToastContainer
@@ -156,10 +180,10 @@ const MainCart = (props) => {
 
                                                             <div className="button minus">
                                                                 <button type="button" className="btn btn-primary btn-number" onClick={() => {
-                                                                                                showToast('minus', curItem);
-                                                                                                 handleClick(curItem.product_id, 'minus');
-                                                                                                props.ramovefromocartHandler({ product_id: curItem.product_id })
-                                                                                                }} data-type="minus" data-field="quant[1]">
+                                                                    showToast('minus', curItem);
+                                                                    handleClick(curItem.product_id, 'minus');
+                                                                    props.ramovefromocartHandler({ product_id: curItem.product_id })
+                                                                }} data-type="minus" data-field="quant[1]">
                                                                     <i className="ti-minus"></i>
                                                                 </button>
                                                             </div>
@@ -182,9 +206,9 @@ const MainCart = (props) => {
                                                     </td>
                                                     <td className="total-amount" data-title="Total"><span>${curItem.quantity * curItem.mrp}</span></td>
                                                     <td className="action" data-title="Remove"><a href="#" onClick={() => {
-                                                                                                showToast('remove', curItem);
-                                                                                                props.removeProductHandler({ product_id: curItem.product_id,quantity:curItem.quantity,mrp:curItem.mrp })
-                                                                                                }} ><i className="ti-trash remove-icon"></i></a></td>
+                                                        showToast('remove', curItem);
+                                                        props.removeProductHandler({ product_id: curItem.product_id, quantity: curItem.quantity, mrp: curItem.mrp })
+                                                    }} ><i className="ti-trash remove-icon"></i></a></td>
                                                 </tr>
                                             )
 

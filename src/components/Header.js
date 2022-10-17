@@ -8,22 +8,23 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSearchParams } from 'react-router-dom';
 import Toaster from './Toaster';
-
 const Header = (props) => {
   let [searchParams, setSearchParams] = useSearchParams();
 
   const serializedState = localStorage.getItem('state');
   const statedata = JSON.parse(serializedState);
 
-  const [count, setCount] = useState({});
+  const [count, setCount] = useState({ default: 0 });
   const [value, setValue] = useState(null);
   const [myOptions, setMyOptions] = useState([]);
 
   const url = 'https://fakestoreapi.com/products';
 
   useState(() => {
+
     const product_count = localStorage.getItem('counter');
     const counter2 = JSON.parse(product_count);
+
     if (statedata) {
       //  console.log(statedata.data.cartItems);
       if (statedata.cartItems.length > 0) {
@@ -32,6 +33,7 @@ const Header = (props) => {
         props.data.totalItems = statedata.totalItems;
       }
     }
+
     // console.log(counter2);
     if (counter2) {
       // console.log('if');
@@ -47,48 +49,45 @@ const Header = (props) => {
 
     let state2 = counter2;
 
-    if (statedata) {
-      //  console.log(statedata.data.cartItems);
-      if (statedata.cartItems.length > 0) {
-        props.data.cartItems = statedata.cartItems;
-        props.data.totalAmount = statedata.totalAmount;
-        props.data.totalItems = statedata.totalItems;
-      }
-    }
+    // const product_count = JSON.stringify(count);
+    // localStorage.setItem('counter', product_count);
 
-  });
+  })
 
   // console.log(count);
 
-  function showToast2(type, curItem) {
+  const showToast2 = (type, curItem) => {
 
+    // console.log(type);
     if (statedata.cartItems.length >= 0) {
       if (type == 'add') {
         if (statedata.cartItems.length == 0 || statedata.cartItems.length > 0) {
           toast.success('Item Added');
         }
       } else if (type == 'remove') {
+
         const product_count = localStorage.getItem('counter');
         const counter2 = JSON.parse(product_count);
-  
-        setCount(count => {
-          const newState = counter2;
-          return newState;
+
+        setCount(state2 => {
+          const newState = counter2
+          return newState
         });
 
         setCount(count => {
-          const newState = { ...count }; //keep state immutable
-          !newState[curItem.product_id] && (newState[curItem.product_id] = 0);
+          const newState = { ...count } //keep state immutable
+          !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
 
           if (newState[curItem.product_id] > 0) {
-            newState[curItem.product_id] = 0;
+            newState[curItem.product_id] = 0
 
             const product_count = JSON.stringify(newState);
             localStorage.setItem('counter', product_count);
           }
 
-          //console.log(newState);
-          return newState;
+          console.log(newState);
+
+          return newState
         });
 
         const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
@@ -98,8 +97,10 @@ const Header = (props) => {
         }
 
       } else if (type == 'cartEmpty') {
-        // console.log('cart');
+        //  console.log('cart');
+
         toast.error('Your Cart is Empty');
+
       } else {
         const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
         if (theItem) {
@@ -108,8 +109,19 @@ const Header = (props) => {
       }
     }
 
-  }
+  };
 
+  useState(() => {
+    if (statedata) {
+      //  console.log(statedata.data.cartItems);
+      if (statedata.cartItems.length > 0) {
+        props.data.cartItems = statedata.cartItems;
+        props.data.totalAmount = statedata.totalAmount;
+        props.data.totalItems = statedata.totalItems;
+      }
+    }
+
+  })
 
   if (props.data.cartItems.length >= 0) {
 
@@ -127,7 +139,6 @@ const Header = (props) => {
     }
 
   }
-
   useEffect(() => {
 
     axios.get(url).then(response => {
@@ -146,7 +157,7 @@ const Header = (props) => {
   }
 
   const ele = document.getElementsByClassName('MuiAutocomplete-clearIndicator');
-  
+
   if (ele) {
     // ele.click = function fun() {
     //   alert("hello");
@@ -166,6 +177,7 @@ const Header = (props) => {
 
   return (
     <div>
+
       <Toaster />
       <header className="header shop">
 
@@ -218,11 +230,11 @@ const Header = (props) => {
 
                   </div>
                 </div>
-
               </div>
               <div className="col-lg-8 col-md-7 col-12">
                 <div className="search-bar-top">
                   <div className="search-bar">
+
                     <div className="nice-select"><span className="current">All Category</span>
 
                     </div>
@@ -276,12 +288,11 @@ const Header = (props) => {
                           }
 
                         })()}
-
                       </div>
                       <ul className="shopping-list">
+
                         {
                           props.data.cartItems.map((curItem) => {
-                            //console.log(curItem);
                             return (
                               <li key={curItem.id}>
                                 <a href="#" className="remove" onClick={() => {
@@ -404,7 +415,7 @@ const Header = (props) => {
                                       return (
                                         <Link to='#' onClick={() => {
                                           showToast2('cartEmpty', 'none');
-                                        }} >CheckOut</Link>
+                                        }}  >CheckOut</Link>
                                       )
                                     }
 
