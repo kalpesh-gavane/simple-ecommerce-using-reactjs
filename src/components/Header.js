@@ -14,7 +14,10 @@ const Header = (props) => {
   const serializedState = localStorage.getItem('state');
   const statedata = JSON.parse(serializedState);
 
-  const [count, setCount] = useState({ default: 0 });
+  const cartCounter = JSON.parse(localStorage.getItem('counter'));
+  // console.log(cartCounter);
+
+  const [count, setCount] = useState(cartCounter == null ? 0 : cartCounter);
   const [value, setValue] = useState(null);
   const [myOptions, setMyOptions] = useState([]);
 
@@ -44,14 +47,9 @@ const Header = (props) => {
     } else {
       // console.log('else');
       const test = JSON.stringify(count);
-      localStorage.setItem('counter', test);
+      // localStorage.setItem('counter', test);
     }
-
     let state2 = counter2;
-
-    // const product_count = JSON.stringify(count);
-    // localStorage.setItem('counter', product_count);
-
   })
 
   // console.log(count);
@@ -68,7 +66,6 @@ const Header = (props) => {
 
         const product_count = localStorage.getItem('counter');
         const counter2 = JSON.parse(product_count);
-
         setCount(state2 => {
           const newState = counter2
           return newState
@@ -77,16 +74,11 @@ const Header = (props) => {
         setCount(count => {
           const newState = { ...count } //keep state immutable
           !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
-
           if (newState[curItem.product_id] > 0) {
             newState[curItem.product_id] = 0
-
             const product_count = JSON.stringify(newState);
-            localStorage.setItem('counter', product_count);
+           localStorage.setItem('counter', product_count);
           }
-
-          console.log(newState);
-
           return newState
         });
 
@@ -97,10 +89,7 @@ const Header = (props) => {
         }
 
       } else if (type == 'cartEmpty') {
-        //  console.log('cart');
-
         toast.error('Your Cart is Empty');
-
       } else {
         const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
         if (theItem) {
@@ -123,24 +112,19 @@ const Header = (props) => {
 
   })
 
+
   if (props.data.cartItems.length >= 0) {
 
     try {
-      //  console.log(props.data);
-
       const serializedState = JSON.stringify(props.data);
       localStorage.setItem('state', serializedState);
-
-      const test = JSON.stringify({ default: 0 });
-      localStorage.setItem('counter', test);
-
     } catch (e) {
       // Ignore write errors;
     }
 
   }
-  useEffect(() => {
 
+  useEffect(() => {
     axios.get(url).then(response => {
       //  console.log('useEffect');
       setMyOptions(response.data);
@@ -159,16 +143,13 @@ const Header = (props) => {
   const ele = document.getElementsByClassName('MuiAutocomplete-clearIndicator');
 
   if (ele) {
-    // ele.click = function fun() {
-    //   alert("hello");
-    // }
     document.getElementsByClassName('MuiAutocomplete-clearIndicator').onclick = function fun() {
       console.log(ele);
     }
   }
 
-  const product_count = JSON.stringify(count);
-  localStorage.setItem('counter', product_count);
+  // const product_count = JSON.stringify(count);
+  // localStorage.setItem('counter', product_count);
 
   const defaultProps = {
     options: myOptions,

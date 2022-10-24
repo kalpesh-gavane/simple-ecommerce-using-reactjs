@@ -13,8 +13,7 @@ const Products = (props) => {
     const url = 'https://fakestoreapi.com/products';
 
     const getData = () => {
-        const counterState = localStorage.getItem('counter');
-        return JSON.parse(counterState);
+        return JSON.parse(localStorage.getItem('counter') == null ? 0 : localStorage.getItem('counter'));
     }
 
     const setData = (data) => {
@@ -22,7 +21,7 @@ const Products = (props) => {
         localStorage.setItem('counter', serializedState);
     }
 
-    let [counterhome, setCount] = useState(getData());
+    let [counterhome, setCount] = useState(setData(getData()));
     let productcontent = null;
     let [products, setProduct] = useState();
 
@@ -125,16 +124,15 @@ const Products = (props) => {
 
     } else if (document.getElementById("mui-2")) {
         console.log(document.getElementById("mui-2").value);
-        console.log(products);
+        //console.log(products);
 
         if (products !== undefined && document.getElementById("mui-2").value) {
             const result = products.filter((item3) => {
                 return item3.title === document.getElementById("mui-2").value;
             });
-                products = result;
+            products = result;
         }
-    }
-    else {
+    } else {
         products = products;
     }
 
