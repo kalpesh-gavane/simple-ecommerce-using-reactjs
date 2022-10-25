@@ -7,7 +7,7 @@ import '../index.css';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSearchParams } from 'react-router-dom';
-import Toaster from './Toaster';
+
 const Header = (props) => {
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -60,7 +60,7 @@ const Header = (props) => {
     if (statedata.cartItems.length >= 0) {
       if (type == 'add') {
         if (statedata.cartItems.length == 0 || statedata.cartItems.length > 0) {
-          toast.success('Item Added');
+          //   toast.success('Item Added');
         }
       } else if (type == 'remove') {
 
@@ -77,7 +77,7 @@ const Header = (props) => {
           if (newState[curItem.product_id] > 0) {
             newState[curItem.product_id] = 0
             const product_count = JSON.stringify(newState);
-           localStorage.setItem('counter', product_count);
+            localStorage.setItem('counter', product_count);
           }
           return newState
         });
@@ -158,10 +158,7 @@ const Header = (props) => {
 
   return (
     <div>
-
-      <Toaster />
       <header className="header shop">
-
         <div className="topbar">
           <div className="container">
             <div className="row">

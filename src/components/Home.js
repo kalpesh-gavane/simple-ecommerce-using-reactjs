@@ -1,7 +1,7 @@
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import HomeProductContainer from "../containers/HomeProductContainer";
-
+import Toaster from "./Toaster";
 
 const Home = (props) => {
 
@@ -138,6 +138,7 @@ const Home = (props) => {
                       <div className="row" id="mens">
                         <div className='col-md-12'>
                           <div className='row'>
+                            <Toaster />
                             <HomeProductContainer />
                           </div>
                         </div>

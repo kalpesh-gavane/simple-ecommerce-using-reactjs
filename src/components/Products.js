@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from './logo.svg';
 import { toast } from 'react-toastify';
-import Toaster from "./Toaster";
+
 import 'react-toastify/dist/ReactToastify.css';
 import { useSearchParams } from 'react-router-dom';
 
@@ -60,10 +60,7 @@ const Products = (props) => {
                     toast.success('Item Added');
                 }
             } else {
-
                 const theItem = props.data.cartItems.find(product => product.product_id === curItem.id);
-
-                // console.log(curItem);
                 if (theItem) {
                     toast.error('Item Removed');
                 }
@@ -190,7 +187,6 @@ const Products = (props) => {
 
     return (
         <>
-            <Toaster />
             {productcontent}
         </>
     )
