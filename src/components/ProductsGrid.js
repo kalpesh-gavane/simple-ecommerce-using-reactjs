@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from "react";
-import { products } from "./Products";
+import React, { useState, useEffect } from "react";
+// import { products } from "./Products";
 import axios from "axios";
 
 function ProductsGrid(props) {
@@ -22,7 +22,7 @@ function ProductsGrid(props) {
 	const filterProducts = (type, value) => {
 		//	console.log(value);
 
-		if (type == 'category') {
+		if (type === 'category') {
 			const result = allproducts.filter((product) => {
 				return product.title === value;
 			});
@@ -122,7 +122,7 @@ function ProductsGrid(props) {
 											<img src="https://via.placeholder.com/75x75" alt="#" />
 										</div>
 										<div className="content">
-											<h5><a href="#">Girls Dress</a></h5>
+											<h5><a >Girls Dress</a></h5>
 											<p className="price">$99.50</p>
 											<ul className="reviews">
 												<li className="yellow"><i className="ti-star"></i></li>
@@ -139,7 +139,7 @@ function ProductsGrid(props) {
 											<img src="https://via.placeholder.com/75x75" alt="#" />
 										</div>
 										<div className="content">
-											<h5><a href="#">Women Clothings</a></h5>
+											<h5><a >Women Clothings</a></h5>
 											<p className="price">$99.50</p>
 											<ul className="reviews">
 												<li className="yellow"><i className="ti-star"></i></li>
@@ -156,7 +156,7 @@ function ProductsGrid(props) {
 											<img src="https://via.placeholder.com/75x75" alt="#" />
 										</div>
 										<div className="content">
-											<h5><a href="#">Man Tshirt</a></h5>
+											<h5><a >Man Tshirt</a></h5>
 											<p className="price">$99.50</p>
 											<ul className="reviews">
 												<li className="yellow"><i className="ti-star"></i></li>
@@ -174,10 +174,10 @@ function ProductsGrid(props) {
 									<h3 className="title">Manufacturers</h3>
 									<ul className="categor-list">
 										<li><a   >Forever</a></li>
-										<li><a href="#">giordano</a></li>
-										<li><a href="#">abercrombie</a></li>
-										<li><a href="#">ecko united</a></li>
-										<li><a href="#">zara</a></li>
+										<li><a >giordano</a></li>
+										<li><a >abercrombie</a></li>
+										<li><a >ecko united</a></li>
+										<li><a >zara</a></li>
 									</ul>
 								</div>
 
@@ -221,7 +221,7 @@ function ProductsGrid(props) {
 
 								{
 									allproducts.map((product) => {
-// console.log(product);
+										// console.log(product);
 										return <>
 											<div className="col-lg-4 col-md-6 col-12" key={product.id}>
 												<div className="single-product">
@@ -232,13 +232,13 @@ function ProductsGrid(props) {
 														</a>
 														<div className="button-head">
 															<div className="product-action">
-																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i className=" ti-eye"></i><span>Quick Shop</span></a>
-																<a title="Wishlist" href="#"><i className=" ti-heart "></i><span>Add to Wishlist</span></a>
-																<a title="Compare" href="#"><i className="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" ><i className=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" ><i className=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" ><i className="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 															</div>
 
 															<div className="product-action-2">
-																<a title="Add to cart" href="#">Add to cart</a>
+																<a title="Add to cart" >Add to cart</a>
 															</div>
 														</div>
 													</div>

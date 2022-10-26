@@ -1,7 +1,7 @@
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import HomeProductContainer from "../containers/HomeProductContainer";
-import Toaster from "./Toaster";
+
 
 const Home = (props) => {
 
@@ -9,7 +9,7 @@ const Home = (props) => {
 
     try {
       //  console.log(props.data);
-      if (props.data.cartItems.length == 0) {
+      if (props.data.cartItems.length === 0) {
         // console.log('0');
         const serializedState = JSON.stringify(props.data);
         localStorage.setItem('state', serializedState);
@@ -44,7 +44,7 @@ const Home = (props) => {
                           odiy maboriosm.
                         </p>
                         <div className="button">
-                          <a href="#" className="btn">Shop Now!</a>
+                          <div className="btn">Shop Now!</div>
                         </div>
                       </div>
                     </div>
@@ -70,7 +70,7 @@ const Home = (props) => {
                     Summer travel <br />
                     collection
                   </h3>
-                  <a href="#">Discover Now</a>
+                  <div >Discover Now</div>
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@ const Home = (props) => {
                     Awesome Bag <br />
                     2020
                   </h3>
-                  <a href="#">Shop Now</a>
+                  <div >Shop Now</div>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ const Home = (props) => {
                     Mid Season <br />
                     Up to <span>40%</span> Off
                   </h3>
-                  <a href="#">Discover Now</a>
+                  <div >Discover Now</div>
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@ const Home = (props) => {
                       <div className="row" id="mens">
                         <div className='col-md-12'>
                           <div className='row'>
-                            <Toaster />
+
                             <HomeProductContainer />
                           </div>
                         </div>
@@ -178,13 +178,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h4 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h4>
                       <p className="price with-discount">$59</p>
                     </div>
@@ -197,13 +197,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$44</p>
                     </div>
@@ -216,13 +216,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$89</p>
                     </div>
@@ -245,13 +245,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$65</p>
                     </div>
@@ -264,13 +264,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$33</p>
                     </div>
@@ -283,13 +283,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$77</p>
                     </div>
@@ -312,13 +312,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$22</p>
                     </div>
@@ -331,13 +331,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$35</p>
                     </div>
@@ -350,13 +350,13 @@ const Home = (props) => {
                   <div className="col-lg-6 col-md-6 col-12">
                     <div className="list-image overlay">
                       <img src="https://via.placeholder.com/115x140" alt="#" />
-                      <a href="#" className="buy"><i className="fa fa-shopping-bag"></i></a>
+                      <div className="buy"><i className="fa fa-shopping-bag"></i></div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-12 no-padding">
                     <div className="content">
                       <h5 className="title">
-                        <a href="#">Licity jelly leg flat Sandals</a>
+                        <div >Licity jelly leg flat Sandals</div>
                       </h5>
                       <p className="price with-discount">$99</p>
                     </div>
@@ -415,8 +415,8 @@ const Home = (props) => {
                 <img src="https://via.placeholder.com/370x300" alt="#" />
                 <div className="content">
                   <p className="date">22 July , 2020. Monday</p>
-                  <a href="#" className="title">Sed adipiscing ornare.</a>
-                  <a href="#" className="more-btn">Continue Reading</a>
+                  <div className="title">Sed adipiscing ornare.</div>
+                  <div className="more-btn">Continue Reading</div>
                 </div>
               </div>
 
@@ -427,8 +427,8 @@ const Home = (props) => {
                 <img src="https://via.placeholder.com/370x300" alt="#" />
                 <div className="content">
                   <p className="date">22 July, 2020. Monday</p>
-                  <a href="#" className="title">Man’s Fashion Winter Sale</a>
-                  <a href="#" className="more-btn">Continue Reading</a>
+                  <div className="title">Man’s Fashion Winter Sale</div>
+                  <div className="more-btn">Continue Reading</div>
                 </div>
               </div>
 
@@ -439,8 +439,8 @@ const Home = (props) => {
                 <img src="https://via.placeholder.com/370x300" alt="#" />
                 <div className="content">
                   <p className="date">22 July, 2020. Monday</p>
-                  <a href="#" className="title">Women Fashion Festive</a>
-                  <a href="#" className="more-btn">Continue Reading</a>
+                  <div className="title">Women Fashion Festive</div>
+                  <div className="more-btn">Continue Reading</div>
                 </div>
               </div>
 

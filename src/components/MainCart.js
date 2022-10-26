@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const MainCart = (props) => {
 
@@ -12,8 +12,8 @@ const MainCart = (props) => {
     const counterState = localStorage.getItem('counter');
     const counterdata = JSON.parse(counterState);
 
-    console.log(counterdata);
-    console.log('counterdata');
+    // console.log(counterdata);
+    // console.log('counterdata');
 
     const [count, setCount] = useState(counterdata);
 
@@ -57,37 +57,37 @@ const MainCart = (props) => {
                 }
             } else if (type == 'remove') {
 
-                // const product_count = localStorage.getItem('counter');
-                // const counter2 = JSON.parse(product_count);
+                const product_count = localStorage.getItem('counter');
+                const counter2 = JSON.parse(product_count);
 
-                // setCount(state2 => {
-                //     const newState = counter2
-                //     return newState
-                // });
+                setCount(state2 => {
+                    const newState = counter2
+                    return newState
+                });
 
-                // console.log(count);
+                console.log(count);
 
-                // setCount(count => {
-                //     const newState = { ...count } //keep state immutable
-                //     !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
+                setCount(count => {
+                    const newState = { ...count } //keep state immutable
+                    !newState[curItem.product_id] && (newState[curItem.product_id] = 0)
 
-                //     if (newState[curItem.product_id] > 0) {
-                //         newState[curItem.product_id] = 0
+                    if (newState[curItem.product_id] > 0) {
+                        newState[curItem.product_id] = 0
 
-                //         const product_count = JSON.stringify(newState);
-                //         localStorage.setItem('counter', product_count);
-                //     }
+                        const product_count = JSON.stringify(newState);
+                        localStorage.setItem('counter', product_count);
+                    }
 
-                //    // console.log(newState);
+                    // console.log(newState);
 
-                //     return newState
-                // });
+                    return newState
+                });
 
-                // const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
+                const theItem = statedata.cartItems.find(product => product.product_id === curItem.product_id);
 
-                // if (theItem) {
-                //     toast.error('Item Removed');
-                // }
+                if (theItem) {
+                    toast.error('Item Removed');
+                }
 
 
             } else {
@@ -131,18 +131,6 @@ const MainCart = (props) => {
     // console.log(count);
     return (
         <>
-            {/* <ToastContainer
-                position="bottom-center"
-                title='success'
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            /> */}
             <div className="shopping-cart section">
                 <div className="container">
                     <div className="row">
@@ -171,7 +159,7 @@ const MainCart = (props) => {
                                                 <tr>
                                                     <td className="image" data-title="No"><img src="https://via.placeholder.com/70x70" alt="#" /></td>
                                                     <td className="product-des" data-title="Description">
-                                                        <p className="product-name"><a href="#">{curItem.name}</a></p>
+                                                        <p className="product-name"><a >{curItem.name}</a></p>
                                                     </td>
                                                     <td className="price" data-title="Price"><span>${curItem.mrp} </span></td>
                                                     <td className="qty" data-title="Qty">
@@ -205,7 +193,7 @@ const MainCart = (props) => {
 
                                                     </td>
                                                     <td className="total-amount" data-title="Total"><span>${curItem.quantity * curItem.mrp}</span></td>
-                                                    <td className="action" data-title="Remove"><a href="#" onClick={() => {
+                                                    <td className="action" data-title="Remove"><a  onClick={() => {
                                                         showToast('remove', curItem);
                                                         props.removeProductHandler({ product_id: curItem.product_id, quantity: curItem.quantity, mrp: curItem.mrp })
                                                     }} ><i className="ti-trash remove-icon"></i></a></td>
@@ -247,8 +235,8 @@ const MainCart = (props) => {
                                                 <li className="last">You Pay<span>$ {props.data.totalAmount}</span></li>
                                             </ul>
                                             <div className="button5">
-                                                <a href="#" className="btn">Checkout</a>
-                                                <a href="#" className="btn">Continue shopping</a>
+                                                <a  className="btn">Checkout</a>
+                                                <a  className="btn">Continue shopping</a>
                                             </div>
                                         </div>
                                     </div>

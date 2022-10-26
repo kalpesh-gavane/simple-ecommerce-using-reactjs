@@ -200,7 +200,7 @@ const Header = (props) => {
                 </div>
 
                 <div className="mobile-nav">
-                  <div className="slicknav_menu"><a href="#" aria-haspopup="true" role="button"
+                  <div className="slicknav_menu"><a aria-haspopup="true" role="button"
                     className="slicknav_btn slicknav_collapsed"><span
                       className="slicknav_menutxt"></span><span className="slicknav_icon slicknav_no-text"><span
                         className="slicknav_icon-bar"></span><span className="slicknav_icon-bar"></span><span
@@ -240,13 +240,13 @@ const Header = (props) => {
 
                 <div className="right-bar">
                   <div className="sinlge-bar">
-                    <a href="#" className="single-icon"><i className="fa fa-heart-o" aria-hidden="true"></i></a>
+                    <a className="single-icon"><i className="fa fa-heart-o" aria-hidden="true"></i></a>
                   </div>
                   <div className="sinlge-bar">
-                    <a href="#" className="single-icon"><i className="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                    <a className="single-icon"><i className="fa fa-user-circle-o" aria-hidden="true"></i></a>
                   </div>
                   <div className="sinlge-bar shopping">
-                    <a href="#" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{props.data.cartItems.length}</span></a>
+                    <a className="single-icon"><i className="ti-bag"></i> <span className="total-count">{props.data.cartItems.length}</span></a>
                     <div className="shopping-item">
                       <div className="dropdown-cart-header">
                         <span>{props.data.totalItems} Items</span>
@@ -273,12 +273,12 @@ const Header = (props) => {
                           props.data.cartItems.map((curItem) => {
                             return (
                               <li key={curItem.id}>
-                                <a href="#" className="remove" onClick={() => {
+                                <a className="remove" onClick={() => {
                                   showToast2('remove', curItem);
                                   props.removeProductHandler({ product_id: curItem.product_id, quantity: curItem.quantity, mrp: curItem.mrp })
                                 }} title="Remove this item"><i className="fa fa-remove"></i></a>
                                 <a className="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#" /></a>
-                                <h4><a href="#">{curItem.name}</a></h4>
+                                <h4><a>{curItem.name}</a></h4>
                                 <p className="quantity">{curItem.quantity}x - <span className="amount">${curItem.mrp.toFixed(2)}</span></p>
                               </li>
                             )

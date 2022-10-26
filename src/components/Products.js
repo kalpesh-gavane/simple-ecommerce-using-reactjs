@@ -171,8 +171,8 @@ const Products = (props) => {
                     </div >
                     <div className="product-content">
                         <h3>
-                            <a href="#"> {curItem.title}</a>
-                            <a href="#"></a>
+                            <a> {curItem.title}</a>
+                            <a></a>
                         </h3>
                         <div className="product-price">
                             <span>${curItem.price}</span>

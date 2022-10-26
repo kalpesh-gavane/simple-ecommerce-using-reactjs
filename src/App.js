@@ -7,12 +7,14 @@ import ProductContainer from './containers/ProductContainer';
 import Contact from './components/Contact';
 import HeaderContainer from './containers/HeaderContainer';
 import Checkout from './components/Checkout';
+import Toaster from './components/Toaster'
 
 
 const App = (type) => {
 
   return (
     <div>
+      <Toaster />
       <BrowserRouter>
         <HeaderContainer />
         <Routes>
