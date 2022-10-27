@@ -193,7 +193,7 @@ const MainCart = (props) => {
 
                                                     </td>
                                                     <td className="total-amount" data-title="Total"><span>${curItem.quantity * curItem.mrp}</span></td>
-                                                    <td className="action" data-title="Remove"><a  onClick={() => {
+                                                    <td className="action" data-title="Remove"><a onClick={() => {
                                                         showToast('remove', curItem);
                                                         props.removeProductHandler({ product_id: curItem.product_id, quantity: curItem.quantity, mrp: curItem.mrp })
                                                     }} ><i className="ti-trash remove-icon"></i></a></td>
@@ -215,7 +215,7 @@ const MainCart = (props) => {
                                     <div className="col-lg-8 col-md-5 col-12">
                                         <div className="left">
                                             <div className="coupon">
-                                                <form action="#" target="_blank">
+                                                <form action="#">
                                                     <input name="Coupon" placeholder="Enter Your Coupon" />
                                                     <button className="btn">Apply</button>
                                                 </form>
@@ -229,14 +229,14 @@ const MainCart = (props) => {
                                     <div className="col-lg-4 col-md-7 col-12">
                                         <div className="right">
                                             <ul>
-                                                <li>Cart Subtotal<span>$330.00</span></li>
-                                                <li>Shipping<span>Free</span></li>
-                                                <li>You Save<span>$20.00</span></li>
-                                                <li className="last">You Pay<span>$ {props.data.totalAmount}</span></li>
+                                                <li>Cart Subtotal<span>$ {props.data.totalAmount.toFixed(2)}</span></li>
+                                                {/* <li>Shipping<span>Free</span></li>
+                                                <li>You Save<span>$20.00</span></li> */}
+                                                <li className="last">You Pay<span>$ {props.data.totalAmount.toFixed(2)}</span></li>
                                             </ul>
                                             <div className="button5">
-                                                <a  className="btn">Checkout</a>
-                                                <a  className="btn">Continue shopping</a>
+                                                <a className="btn">Checkout</a>
+                                                <a className="btn">Continue shopping</a>
                                             </div>
                                         </div>
                                     </div>

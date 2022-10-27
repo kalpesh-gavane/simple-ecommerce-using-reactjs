@@ -4,10 +4,10 @@ const Toaster = () => {
 
     return (
         <ToastContainer
-            position="top-center"
+            position="bottom-right"
             title='success'
-            autoClose={4000}
-            hideProgressBar={false}
+            autoClose={400}
+            hideProgressBar={true}
             newestOnTop={false}
             closeOnClick
             rtl={false}

@@ -271,8 +271,9 @@ const Header = (props) => {
 
                         {
                           props.data.cartItems.map((curItem) => {
+                           // console.log(curItem);
                             return (
-                              <li key={curItem.id}>
+                              <li key={curItem.product_id}>
                                 <a className="remove" onClick={() => {
                                   showToast2('remove', curItem);
                                   props.removeProductHandler({ product_id: curItem.product_id, quantity: curItem.quantity, mrp: curItem.mrp })
