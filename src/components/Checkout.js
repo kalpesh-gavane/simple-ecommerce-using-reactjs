@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import GooglePayButton from '@google-pay/button-react';
+import axios from 'axios';
+
 
 class Checkout extends Component {
 
@@ -10,12 +12,12 @@ class Checkout extends Component {
 
         // Creating state
         this.state = {
-            fName: 'My name is User',
-            lName: 'My name is User',
-            email: 'My name is User',
-            phone: 'My name is User',
-            address: 'My name is User',
-            postalCode: 'My name is User'
+            fName: '',
+            lName: '',
+            email: '',
+            phone: '',
+            address: '',
+            postalCode: ''
         }
 
         // Binding event handler
@@ -34,6 +36,11 @@ class Checkout extends Component {
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
+        axios.post('https://makemydeals.co.in/api/bill/add', this.state).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     render() {
@@ -357,7 +364,7 @@ class Checkout extends Component {
                                             <div className="col-lg-6 col-md-6 col-12">
                                                 <div className="form-group">
 
-                                                    <input type="submit"  />
+                                                    <input type="submit" />
                                                 </div>
                                             </div>
 

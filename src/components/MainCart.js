@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const MainCart = (props) => {
 
@@ -235,8 +236,9 @@ const MainCart = (props) => {
                                                 <li className="last">You Pay<span>$ {props.data.totalAmount.toFixed(2)}</span></li>
                                             </ul>
                                             <div className="button5">
-                                                <a className="btn">Checkout</a>
-                                                <a className="btn">Continue shopping</a>
+                                                <Link className="btn" to='/checkout'>Checkout</Link>
+                                                <Link className="btn" to='/'>Continue shopping</Link>
+                                            
                                             </div>
                                         </div>
                                     </div>

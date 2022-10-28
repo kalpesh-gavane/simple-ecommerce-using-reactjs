@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import '../index.css';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -252,7 +253,6 @@ const Header = (props) => {
                         <span>{props.data.totalItems} Items</span>
 
                         {(() => {
-
                           if (props.data.cartItems.length > 0) {
                             return (
                               <Link to='/cart'>Cart</Link>
@@ -264,14 +264,14 @@ const Header = (props) => {
                               }} >View Cart</Link>
                             )
                           }
-
                         })()}
+
                       </div>
                       <ul className="shopping-list">
 
                         {
                           props.data.cartItems.map((curItem) => {
-                           // console.log(curItem);
+                            // console.log(curItem);
                             return (
                               <li key={curItem.product_id}>
                                 <a className="remove" onClick={() => {
@@ -350,11 +350,20 @@ const Header = (props) => {
                           <ul className="nav main-menu menu navbar-nav">
 
                             <li className="">
-                              <Link to='/'>Home</Link>
+                              <NavLink 
+                              
+                              style={({ isActive }) => ({
+                                backgroundColor: isActive ? '#f7941d' : ''
+                              })}
+                              to='/'>Home</NavLink>
                             </li>
 
                             <li>
-                              <Link to='/product'>Product</Link>
+                              <NavLink
+                                style={({ isActive }) => ({
+                                  backgroundColor: isActive ? '#f7941d' : ''
+                                })}
+                                to='/product'>Product</NavLink>
                             </li>
 
                             <li>
@@ -368,13 +377,21 @@ const Header = (props) => {
 
                                     if (props.data.cartItems.length > 0) {
                                       return (
-                                        <Link to='/cart'>Cart</Link>
+                                        <NavLink
+                                          style={({ isActive }) => ({
+                                            backgroundColor: isActive ? '#f7941d' : ''
+                                          })}
+                                          to='/cart'>Cart</NavLink>
                                       )
                                     } else {
                                       return (
-                                        <Link to='#' onClick={() => {
-                                          showToast2('cartEmpty', 'none');
-                                        }} >Cart</Link>
+                                        <NavLink to='/'
+                                          style={({ isActive }) => ({
+                                            backgroundColor: isActive ? '#f7941d' : ''
+                                          })}
+                                          onClick={() => {
+                                            showToast2('cartEmpty', 'none');
+                                          }} >Cart</NavLink>
                                       )
                                     }
 
@@ -388,13 +405,23 @@ const Header = (props) => {
 
                                     if (props.data.cartItems.length > 0) {
                                       return (
-                                        <Link to='/checkout'>CheckOut</Link>
+                                        <NavLink
+                                          style={({ isActive }) => ({
+                                            backgroundColor: isActive ? '#f7941d' : ''
+                                          })}
+                                          to='/checkout'>CheckOut</NavLink>
                                       )
                                     } else {
                                       return (
-                                        <Link to='#' onClick={() => {
-                                          showToast2('cartEmpty', 'none');
-                                        }}  >CheckOut</Link>
+                                        <NavLink to="#"
+                                          onClick={() => {
+                                            showToast2('cartEmpty', 'none');
+                                          }}
+                                          style={({ isActive }) => ({
+                                            backgroundColor: isActive ? '#f7941d' : ''
+                                          })}>
+                                          CheckOut
+                                        </NavLink>
                                       )
                                     }
 
@@ -406,7 +433,11 @@ const Header = (props) => {
 
                             <li>
 
-                              <Link to='/contact'>Contact</Link>
+                              <NavLink to="/contact" style={({ isActive }) => ({
+                                backgroundColor: isActive ? '#f7941d' : ''
+                              })}>
+                                Contact
+                              </NavLink>
 
                             </li>
 
