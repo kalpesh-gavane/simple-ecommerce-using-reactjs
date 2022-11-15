@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const Products = (props) => {
 
@@ -72,11 +72,11 @@ const Products = (props) => {
     const handleClick = (index, type) => {
 
         if (type === 'add') {
-            const counter2 = getData();
-            setCount(state2 => {
-                const newState = counter2
-                return newState
-            });
+            // const counter2 = getData();
+            // setCount(state2 => {
+            //     const newState = counter2
+            //     return newState
+            // });
             setCount(state2 => {
                 const newState = { ...state2 } //keep state immutable
                 !newState[index] && (newState[index] = 0)
@@ -85,15 +85,16 @@ const Products = (props) => {
                 return newState
             });
         } else if (type === 'minus') {
-            const counter2 = getData();
-            setCount(state2 => {
-                const newState = counter2
-                return newState
-            });
+            // const counter2 = getData();
+            // setCount(state2 => {
+            //     const newState = counter2
+            //     return newState
+            // });
 
             setCount(state2 => {
-                const newState = { ...state2 } //keep state immutable
-                !newState[index] && (newState[index] = 0)
+                const newState = { ...state2 }; //keep state immutable
+                // console.log(newState[index] = 0);
+                // !newState[index] && (newState[index] = 0)
 
                 if (newState[index] > 0) {
                     newState[index]--
@@ -137,11 +138,14 @@ const Products = (props) => {
         productcontent = products.map((curItem) => {
             // console.log(curItem.id);
             return <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={curItem.id}>
+
                 <div className="single-product">
                     <div className="product-img">
-                        <a>
-                            <img className="default-img" src={logo} alt="#" />
-                        </a>
+                        <Link to={`product/${curItem.title}`}>
+                            <a>
+                                <img className="default-img" src={logo} alt="#" />
+                            </a>
+                        </Link>
                         <div className="button-head">
 
                             <div className="product-action">
@@ -179,6 +183,7 @@ const Products = (props) => {
                         </div>
                     </div>
                 </div >
+
             </div >
         });
     }

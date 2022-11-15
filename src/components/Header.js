@@ -296,23 +296,19 @@ const Header = (props) => {
                         </div>
 
                         <a className="btn animate">
+
                           {(() => {
-
-                            if (props.data.totalAmount > 0) {
-
+                            if (props.data.totalAmount > 0.1) {
                               return (
                                 <Link to='/checkout'>CheckOut</Link>
                               )
-
                             } else {
-
                               return (
                                 <Link to='#' onClick={() => {
                                   showToast2('cartEmpty', 'none');
                                 }}  >CheckOut</Link>
                               )
                             }
-
                           })()}
 
                         </a>
@@ -350,12 +346,12 @@ const Header = (props) => {
                           <ul className="nav main-menu menu navbar-nav">
 
                             <li className="">
-                              <NavLink 
-                              
-                              style={({ isActive }) => ({
-                                backgroundColor: isActive ? '#f7941d' : ''
-                              })}
-                              to='/'>Home</NavLink>
+                              <NavLink
+
+                                style={({ isActive }) => ({
+                                  backgroundColor: isActive ? '#f7941d' : ''
+                                })}
+                                to='/'>Home</NavLink>
                             </li>
 
                             <li>

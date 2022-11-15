@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import HeaderContainer from './containers/HeaderContainer';
 import Checkout from './components/Checkout';
 import Toaster from './components/Toaster'
+import ProductDetail from './components/ProductDetail';
 
 
 const App = (type) => {
@@ -23,6 +24,7 @@ const App = (type) => {
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/cart' element={<CartContainer />} />
           <Route exact path='/checkout' element={<Checkout />} />
+          <Route exact path="/product/:productname" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

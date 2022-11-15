@@ -2,7 +2,6 @@ import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import HomeProductContainer from "../containers/HomeProductContainer";
 
-
 const Home = (props) => {
 
   if (props.data.cartItems.length >= 0) {
@@ -138,7 +137,6 @@ const Home = (props) => {
                       <div className="row" id="mens">
                         <div className='col-md-12'>
                           <div className='row'>
-
                             <HomeProductContainer />
                           </div>
                         </div>
