@@ -13,11 +13,7 @@ import { draco } from "drei";
 
 export default function Model(props) {
   const group = useRef();
-  const { nodes, materials } = useLoader(
-    GLTFLoader,
-    `../${props.permalink}/scene.gltf`,
-    draco("/draco-gltf/")
-  );
+  const { nodes, materials } = useLoader(GLTFLoader, `../${props.permalink}/scene.gltf`, draco("/draco-gltf/"));
 
   return (
     <group ref={group} dispose={null} castShadow receiveShadow>
